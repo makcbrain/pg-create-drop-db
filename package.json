@@ -1,0 +1,13 @@
+{
+    "name": "pg-create-drop-db",
+    "description": "Simple module for create or drop database",
+    "version": "0.0.1",
+    "main": "index.js",
+    "dependencies": {
+        "pg": "^7.4.1"
+    },
+    "engines": {
+        "node": ">= 8.5.0"
+    },
+    "license": "MIT"
+}
