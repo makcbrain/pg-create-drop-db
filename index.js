@@ -25,13 +25,13 @@ module.exports = {
             password: options.pass,
             port: options.port,
         });
-        client.connect();
-        return client.query(`select count(*) from pg_catalog.pg_database where datname = '${options.name}'`)
+        return client.connect()
+            .then(() => client.query(`select count(*) from pg_catalog.pg_database where datname = '${options.name}'`))
             .then(result => {
                 if (result.rows[0].count === '0') {
                     let query = `CREATE DATABASE "${options.name}"
-                ${options.owner ? `WITH OWNER = '${options.owner}'` : ''}
-                ENCODING = '${options.encoding}' `;
+                        ${options.owner ? `WITH OWNER = '${options.owner}'` : ''}
+                        ENCODING = '${options.encoding}' `;
                     return client.query(query);
                 }
             })
@@ -51,8 +51,8 @@ module.exports = {
             password: options.pass,
             port: options.port,
         });
-        client.connect();
-        return client.query(`DROP DATABASE IF EXISTS "${options.name}"`)
+        return client.connect()
+            .then(() => client.query(`DROP DATABASE IF EXISTS "${options.name}"`))
             .catch(error => {
                 client.end();
                 throw error;
