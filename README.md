@@ -48,7 +48,7 @@ Deletes the database.
 ``` js
 const {create, drop}=require('pg-create-drop-db');
 
-create({
+drop({
     user: "postgres",
     pass: "postgres",
     host: "localhost",
