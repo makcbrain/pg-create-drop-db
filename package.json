@@ -1,7 +1,7 @@
 {
     "name": "pg-create-drop-db",
     "description": "Simple module for create or drop database",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "repository": "github:makcbrain/pg-create-drop-db",
     "main": "index.js",
     "dependencies": {
